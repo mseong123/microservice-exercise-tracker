@@ -1,0 +1,15 @@
+[[redirects]]
+  from = "/api*"
+  to = "/.netlify/functions/index"
+  status=200
+
+[context.production]
+  environment = {MONGO_URI='mongodb+srv://mseong:lameass@cluster0.ig7rns3.mongodb.net/fcc-backend-api?retryWrites=true&w=majority'}
+
+[context.dev]
+  environment = {MONGO_URI='mongodb+srv://mseong:lameass@cluster0.ig7rns3.mongodb.net/fcc-backend-api?retryWrites=true&w=majority'}
+
+[functions]
+  included_files = ["database/**"] 
+
+  
