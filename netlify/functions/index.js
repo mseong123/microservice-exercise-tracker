@@ -8,6 +8,7 @@ const mongoose=require('mongoose');
 app.use(express.urlencoded({extended:false}));
 app.use(cors())
 
+/*
 function dateConversion(dateParam) {
   const days=['Mon','Tue','Wed','Thurs','Fri','Sat','Sun']
   const month = ["January", "February", "March", "April", "May", "June",
@@ -16,6 +17,7 @@ function dateConversion(dateParam) {
   let date=new Date(dateParam)
   return days[date.getDay()-1] + ' '+ month[date.getMonth()] + ' ' + date.getDate() + ' ' + date.getFullYear();
 }
+*/
 
 app.post('/api/users', async function(req, res) {
   try {
@@ -58,12 +60,11 @@ app.post('/api/users/:_id/exercises',async function(req, res) {
           $push:{log:{
             description:req.body.description,
             duration:parseInt(req.body.duration),
-            date:req.body.date? dateConversion(req.body.date):dateConversion(new Date())
+            date:req.body.date? new Date(req.body.date).toDateString():new Date().toDateString()
           }
             }
         },
-        {new:true,
-        fields:''}
+        {new:true}
         )
 
       res.json({
