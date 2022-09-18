@@ -1,36 +1,63 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Exercise Tracker | freeCodeCamp</title>
-    <link rel="shortcut icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon.ico"  type="image/x-icon" />
+    <title>Exercise Tracker</title>
+    <meta name="description" content="Exercise Tracker Microservice">
+    <meta name="author" content="Mseong">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" />
     <link href="stylesheet/style.css" rel="stylesheet" type="text/css" />
   </head>
 
-  <body>
-    <div class="container">
-      <h1>Exercise tracker</h1>
-      <form action="/api/users" method="post">
-        <h3>Create a New User</h3>
-        <p><code>POST /api/users</code></p>
-        <input id="uname" type="text" name="username" placeholder="username" />
-        <input type="submit" value="Submit" />
-      </form>
-      <form id="exercise-form" method="post">
-        <h3>Add exercises</h3>
-        <p><code>POST /api/users/:_id/exercises</code></p>
-        <input id="uid" type="text" name=":_id" required placeholder=":_id" />
-        <input id="desc" type="text" name="description" required placeholder="description*" />
-        <input id="dur" type="number" name="duration" required placeholder="duration* (mins.)" />
-        <input id="date" type="text" name="date" placeholder="date (yyyy-mm-dd)" />
-        <input type="submit" value="Submit" />
-      </form>
-      <p>
-        <strong>GET user's exercise log: </strong>
-        <code>GET /api/users/:_id/logs?[from][&amp;to][&amp;limit]</code>
-      </p>
-      <p><strong>[ ]</strong> = optional</p>
-      <p><strong>from, to</strong> = dates (yyyy-mm-dd); <strong>limit</strong> = number</p>
+  <body class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 inner-container col-xs-10 col-xs-offset-1">
+        <h1>Exercise tracker</h1>
+        <hr/>
+        <section class="description">
+          <h3>API Usage</h3>
+          <p>
+            This service is an exercise tracker and allows users to track their user (id and name) and exercise data 
+            (description, duration and date completed) through the API in JSON form. Also allows filtering of exercise data. 
+            Data is stored in MongoDB (document database).
+          </p>
+        </section>
+        <form action="/api/users" method="post">
+          <h3>Create a New User</h3>
+          <p><code>POST /api/users</code></p>
+          <input id="uname" type="text" name="username" placeholder="username" />
+          <input type="submit" value="Submit" />
+        </form>
+        <form id="exercise-form" method="post">
+          <h3>Add exercises</h3>
+          <p><code>POST /api/users/:_id/exercises</code></p>
+          <input id="uid" type="text" name=":_id" required placeholder=":_id" />
+          <input id="desc" type="text" name="description" required placeholder="description*" />
+          <input id="dur" type="number" name="duration" required placeholder="duration* (mins.)" />
+          <input id="date" type="text" name="date" placeholder="date (yyyy-mm-dd)" />
+          <input type="submit" value="Submit" />
+        </form>
+        <div class="example">
+          <p>
+            <strong>GET a list of all users: </strong>
+            <code>GET /api/users/</code>
+          </p>
+          Example: <a href="https://microservice-exercise-tracker-mseong.netlify.com/api/users">https://microservice-exercise-tracker-mseong.netlify.com/api/users</a>
+        </div>
+        <div class="example">
+          <p>
+            <strong>GET user's exercise log: </strong>
+            <code>GET /api/users/:_id/logs?[from][&amp;to][&amp;limit]</code>
+          </p>
+          <p><strong>[ ]</strong> = optional</p>
+          <p><strong>from, to</strong> = dates (yyyy-mm-dd); <strong>limit</strong> = number</p>
+          <p>Example: <a href="https://microservice-exercise-tracker-mseong.netlify.app/api/users/631ebe440dcc915033795255/logs?from=2019-03-01&to=2020-03-01&limit=1">
+            https://microservice-exercise-tracker-mseong.netlify.app/api/users/631ebe440dcc915033795255/logs?from=2019-03-01&to=2020-03-01&limit=1</a>
+          </p>
+        </div>
+      </div>
     </div>
     <script>
       const exerciseForm = document.getElementById("exercise-form");

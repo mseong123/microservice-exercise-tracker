@@ -1,3 +1,8 @@
 # Exercise Tracker
 
-This is the boilerplate for the Exercise Tracker project. Instructions for building your project can be found at https://www.freecodecamp.org/learn/apis-and-microservices/apis-and-microservices-projects/exercise-tracker
+This service is an exercise tracker and allows users to track their user (id and name) and exercise data (description, duration and date completed) through the API in JSON form. Also allows filtering of exercise data. Data is stored in MongoDB (document database).
+
+* Built using NodeJS, ExpressJS.
+* Database - MongooseJS and MongoDB.
+* Async/await ES6 Javascript functions used in interaction with Database. 
+* Hosted on Netlify and server-side API is built using Netlify's serverless AWS Lambda Functions. 
