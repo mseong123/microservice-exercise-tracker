@@ -25,13 +25,13 @@
           </p>
         </section>
         <form action="/api/users" method="post">
-          <h3>Create a New User</h3>
+          <h3 class="form-header">Create a New User</h3>
           <p><code>POST /api/users</code></p>
           <input id="uname" type="text" name="username" placeholder="username" />
           <input type="submit" value="Submit" />
         </form>
         <form id="exercise-form" method="post">
-          <h3>Add exercises</h3>
+          <h3 class="form-header">Add exercises</h3>
           <p><code>POST /api/users/:_id/exercises</code></p>
           <input id="uid" type="text" name=":_id" required placeholder=":_id" />
           <input id="desc" type="text" name="description" required placeholder="description*" />
